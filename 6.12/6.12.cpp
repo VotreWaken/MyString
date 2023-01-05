@@ -8,8 +8,7 @@ public:
 	// Overloading the + operator for string concatenation
 	MyString operator+(const MyString& SecondString)
 	{
-		size += SecondString.size;
-		char* temp = new char[size];
+		char* temp = new char[size + SecondString.size];
 
 		int i, j;
 		for (i = 0; ptr[i] != '\0'; i++)
