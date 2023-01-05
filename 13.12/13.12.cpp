@@ -55,13 +55,15 @@ public:
 	{
 		for (int i = 0;; i++)
 		{
-			// One of operands have different Size
-			if (size != SecondString.size)
+			// Check the value of the elements with the second elements
+			// If the element does not match, check which one and return the value
+			if (ptr[i] != SecondString.ptr[i])
 			{
-				return size < SecondString.size ? -1 : 1;
+				return ptr[i] < SecondString.ptr[i] ? -1 : 1;
 			}
-			// Values Equal 
-			if (size == SecondString.size)
+
+			// If all elements match, we reach the Null Terminator and return the value
+			if (ptr[i] == '\0')
 			{
 				return 0;
 			}
@@ -356,7 +358,8 @@ MyString operator+(int value, MyString& StringValue)
 
 int main()
 {
-	MyString a("Hello");
-	MyString c = 2 + a;
-	c.Output();
+	MyString a("A");
+	MyString c("B");
+	int res =  a < c;
+	cout << res;
 }
